@@ -20,6 +20,6 @@ interface Key : Comparable<Key>, Keyed, Namespaced {
         fun of(namespace: Namespaced, value: String) = new<NormalKey>(namespace, value)
         fun lang(namespace: Namespaced, value: String) = new<LangKey>(namespace, value)
 
-        private inline fun <reified T : Key> new(namespace: Namespaced, value: String) = T::class.constructors.toList()[0].call(namespace.namespace, value)
+        private inline fun <reified T : Key> new(namespace: Namespaced, value: String) = T::class.constructors.toList()[0].call(namespace, value)
     }
 }
